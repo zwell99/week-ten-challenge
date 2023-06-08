@@ -17,7 +17,6 @@ const questions = [
         type: "input",
         name: "text",
         message: "What text do you want in the logo? (3 letter maximum)",
-        // Is this right?
         validate: confirmTextLength
     },
     {
