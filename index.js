@@ -4,19 +4,21 @@ const Circle = require("./lib/circle.js");
 const Triangle = require("./lib/triangle.js");
 const Square = require("./lib/square.js");
 
+// Checks the logo text to make sure it is three characters or fewer
+const confirmTextLength = (input) => {
+    if (input.length <= 3) {
+        return true;
+    } else {
+        return "Input is to large.";
+    }
+}
 const questions = [
     {
         type: "input",
         name: "text",
         message: "What text do you want in the logo? (3 letter maximum)",
         // Is this right?
-        validate: (ans) => {
-            if (ans.length <= 3) {
-                return true;
-            } else {
-                return "Input is to large.";
-            }
-        }
+        validate: confirmTextLength
     },
     {
         type: "input",
@@ -43,5 +45,13 @@ function writeToFile(fileName, data) {
 }
 
 inquirer.prompt(questions).then((response) => {
-    // TODO: write the file
+    var shape;
+    if (response.shape == "circle") {
+        shape = new Circle(response.shapeColor, response.text, response.textColor);
+    } else if ((response.shape == "triangle")) {
+        shape = new Triangle(response.shapeColor, response.text, response.textColor);
+    } else {
+        shape = new Square(response.shapeColor, response.text, response.textColor);
+    }
+    writeToFile("logo.svg", shape.getSVG());
 });
