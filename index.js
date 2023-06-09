@@ -22,7 +22,7 @@ const questions = [
     {
         type: "input",
         name: "textColor",
-        message: "What color do yuo want the text to be? \nInput the name (ie. 'green') or hexcode (ie. #1eff00)"
+        message: "What color do you want the text to be? \nInput the name (ie. 'green') or hexcode (ie. #1eff00)"
     },
     {
         type: "list",
@@ -33,13 +33,13 @@ const questions = [
     {
         type: "input",
         name: "shapeColor",
-        message: "What color do yuo want the shape to be? \nInput the name (ie. 'green') or hexcode (ie. #1eff00)"
+        message: "What color do you want the shape to be? \nInput the name (ie. 'green') or hexcode (ie. #1eff00)"
     },
 ];
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
-      err ? console.error(err) : console.log('README successfully created!')
+      err ? console.error(err) : console.log('SVG successfully created!')
     );
 }
 
